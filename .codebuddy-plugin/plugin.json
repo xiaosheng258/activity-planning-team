@@ -4,7 +4,7 @@
   "description": "Multi-agent event planning team that turns basic activity info into a full proposal, budget, risk plan and promo kit.",
   "author": {
     "name": "胡一鸣",
-    "email": "hu.yiming@example.com"
+    "email": "3346742145@qq.com"
   },
   "agents": [
     "./agents/campus-event-planner-team-lead.md",

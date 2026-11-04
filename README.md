@@ -2,9 +2,17 @@
 
 多角色协同的活动策划专家团：输入活动基本信息（名称、类型、规模、日期、场地），并行产出策划方案、预算、风险预案与宣传文案，最终汇编为一份完整的 HTML 策划方案，并附预算 Excel、风险预案 Excel、宣传 PPTX 三份附件。
 
+## 快速开始
+
+```bash
+git clone https://github.com/xiaosheng258/activity-planning-team.git campus-event-planner
+```
+
+放入 `~/.workbuddy-ai/plugins/marketplaces/my-experts/plugins/` 后注册一次即可使用，详见下方[安装到自己的 WorkBuddy](#安装到自己的-workbuddy)。
+
 ## 类型
 
-Team 型（多角色协作团队）· 分类：09-OperationsHR（运营人力）
+Team 型（多角色协作团队）· 分类：09-OperationsHR（运营人力）· 许可：MIT
 
 ## 团队成员
 
@@ -41,22 +49,72 @@ Team 型（多角色协作团队）· 分类：09-OperationsHR（运营人力）
 - 大小：单张不超过 500KB
 - 建议风格：统一漫画/插画风，灰蓝（navy slate-blue）背景
 
-## 安装
+## 安装到自己的 WorkBuddy
 
-专家包目录已注册，路径：
-
-```
-C:\Users\lenovo\.workbuddy-ai\plugins\marketplaces\my-experts\plugins\campus-event-planner
-```
-
-如需在其他机器安装，将包放入同级目录后执行：
+### 1. 下载
 
 ```bash
-python3 scripts/register_expert.py <expert-dir>
+git clone https://github.com/xiaosheng258/activity-planning-team.git campus-event-planner
 ```
 
-## 打包分享
+注意末尾的 `campus-event-planner`：**目录名必须和专家包内部标识一致**，否则无法被识别。
+
+不想用 Git 的话，在仓库页面点 **Code → Download ZIP**，解压后把文件夹重命名为 `campus-event-planner`。
+
+### 2. 放入专家目录
+
+把整个文件夹放到 `my-experts/plugins/` 下：
+
+| 系统 | 路径 |
+|------|------|
+| Windows | `C:\Users\<你的用户名>\.workbuddy-ai\plugins\marketplaces\my-experts\plugins\` |
+| macOS / Linux | `~/.workbuddy-ai/plugins/marketplaces/my-experts/plugins/` |
+
+放好后的结构应为：
+
+```
+my-experts/plugins/campus-event-planner/
+├─ .codebuddy-plugin/plugin.json
+├─ agents/
+├─ skills/
+├─ avatars/
+├─ README.md
+└─ settings.json
+```
+
+### 3. 注册
+
+仅放入文件不会自动出现在面板里，需要注册一次。在 WorkBuddy 中直接说：
+
+> 帮我把 campus-event-planner 这个专家包注册到我的专家列表
+
+或者如果你本机有专家管理脚本，执行：
 
 ```bash
-python3 scripts/package_expert.py <expert-dir> <output-dir>
+python3 <expert-manager>/scripts/register_expert.py <上述 campus-event-planner 路径>
 ```
+
+> `register_expert.py` 属于 WorkBuddy 内置的 expert-manager 技能，不在本仓库内。仓库只包含专家包本体。
+
+### 4. 使用
+
+注册成功后，在左侧「专家」→「我的专家」中找到「活动策划天团」，发送活动基本信息即可。
+
+
+## 自定义
+
+想改造这套专家团，主要改这几处：
+
+| 想改什么 | 改哪个文件 |
+|---------|-----------|
+| 团队成员的名字/职业/职责 | `.codebuddy-plugin/plugin.json` 的 `members` + 对应 `agents/*.md` 的 frontmatter |
+| 某个角色产出什么 | `agents/<角色>.md` 的「输出规范」章节 |
+| 策划书段落结构 | `skills/event-planning-kit/references/策划书八段式模板.md` |
+| 团队协作流程 | `agents/campus-event-planner-team-lead.md` 的「标准工作流程」 |
+| 头像 | 直接替换 `avatars/` 下同名 PNG（512×512，≤500KB） |
+
+改完 `plugin.json` 后需要重新注册一次才会生效。
+
+## 许可
+
+[MIT](LICENSE) © 2026 胡一鸣

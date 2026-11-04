@@ -26,12 +26,32 @@ maxTurns: 50
 1. 接收活动信息（名称、时间、地点、对象、卖点）。
 2. **查阅知识库** `<知识库目录>/宣传文案标准.md`，确定目标人群对应的语气档。
 3. **Phase 1（快速返回）**：先产出文案 JSON，立即回传主理人供 HTML 整合。
-4. **Phase 2（异步）**：调用脚本渲染宣传 PPTX（不要自己写 pptx 代码）：
+4. **Phase 2（异步）：生成宣传 PPTX**
+
+   有两条路径，**优先用 A**：
+
+   **A. ppt-master（原生可编辑，质量高，推荐）**
+   本机已装 `ultimate-ppt-master`（`D:/Skill/skills/ultimate-ppt-master-v6`）。
+   流程：写 SVG 页面 → 质量检查 → 转 PPTX。
    ```bash
-   python3 <技能目录>/scripts/gen_pptx.py <数据.json> <输出目录>/宣传物料/宣传_<活动名>.pptx
+   SKILL="D:/Skill/skills/ultimate-ppt-master-v6"
+   # 1) 页面写在 <项目>/svg_output/slide_01.svg ...（1280x720 或 1920x1080）
+   # 2) 必须先过质量检查，否则转换会被 BLOCK
+   python3 "$SKILL/scripts/svg_quality_checker.py" <项目目录>
+   # 3) 转换（Native DrawingML = 文字可编辑）
+   python3 "$SKILL/scripts/svg_to_pptx.py" <项目目录> -o <输出>/宣传物料/宣传_<活动名>.pptx -f ppt169
    ```
-   数据 JSON 结构见脚本头部注释（activity/slogan/date/venue/target/org/highlights/cta/color）。
-   脚本生成 4 页：封面、亮点、信息、行动号召。完成后补链接。
+   画幅可选：`ppt169`（16:9）/ `xiaohongshu`（小红书）/ `moments`（朋友圈）/ `a4`。
+
+   **B. 本地脚本（快速兜底，双模式）**
+   当 ppt-master 不可用、或只要简单排版时：
+   ```bash
+   python3 <技能目录>/scripts/gen_pptx.py <数据.json> <输出>/宣传物料/宣传_<活动名>.pptx --mode promo
+   python3 <技能目录>/scripts/gen_pptx.py <数据.json> <输出>/汇报/汇报_<活动名>.pptx --mode report
+   ```
+
+   **模式选择**：默认 promo（招新宣传，4 页）；用户要向上申请资源、要汇报 → report（7 页）；说"两种都要" → 两个都做。
+   完成后补链接。
 5. 自检：时间/地点/报名方式与方案一致，无夸大承诺，标题不是"关于XX的通知"。
 
 ## 输出规范

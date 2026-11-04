@@ -48,7 +48,25 @@
 |------|--------|------|
 | `scripts/gen_budget_excel.py` | budget-analyst | 预算 Excel（明细含活公式 + 分类汇总占比） |
 | `scripts/gen_risk_excel.py` | risk-manager | 风险预案 Excel（按等级排序着色 + 应急联络 Sheet） |
-| `scripts/gen_pptx.py` | promo-copywriter | 宣传 PPTX（4 页：封面/亮点/信息/行动） |
+| `scripts/gen_pptx.py` | promo-copywriter | 双模式：promo 招新宣传（4页）/ report 审批汇报（7页） |
+
+### 外部技能：ultimate-ppt-master（优先使用）
+
+本机已装 `D:/Skill/skills/ultimate-ppt-master-v6`（PPT Master v6），做宣传 PPTX 时**优先用它**，因为它输出的是 **Native DrawingML 原生可编辑对象**（文字可直接在 PPT 里改），而非图片或纯文本框。
+
+调用三步：
+```bash
+SKILL="D:/Skill/skills/ultimate-ppt-master-v6"
+# 1) 写页面到 <项目>/svg_output/slide_01.svg（1280x720）
+# 2) 质量检查（不过则拒绝转换）
+python3 "$SKILL/scripts/svg_quality_checker.py" <项目目录>
+# 3) 转换
+python3 "$SKILL/scripts/svg_to_pptx.py" <项目目录> -o <输出>.pptx -f ppt169
+```
+画幅：`ppt169` / `xiaohongshu` / `moments` / `a4` / `ppt43`。
+
+> 注意：`svg_to_pptx.py` 有强制质检门禁，未通过 `svg_quality_checker` 会直接 BLOCK。
+> 本地 `gen_pptx.py` 作为兜底（简单、无依赖、双模式），复杂排版或需要精细视觉时走 ppt-master。
 
 用法统一：
 ```bash
@@ -64,7 +82,8 @@ python3 scripts/gen_xxx.py <数据.json> <输出路径.xlsx|pptx>
 output/
 ├── 预算/            预算表_<活动名>.xlsx
 ├── 风险预案/        风险预案_<活动名>.xlsx
-├── 宣传物料/        宣传_<活动名>.pptx
+├── 宣传物料/        宣传_<活动名>.pptx（招新宣传版）
+├── 汇报/            汇报_<活动名>.pptx（审批汇报版）
 └── 策划书_<活动名>_<YYYYMMDD>.html
 ```
 

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{活动名称}} · 策划方案</title>
+<style>
+  :root{
+    --main:#1e5b96; --light:#e8f0f8; --border:#d0dbe8;
+    --text:#2c3e50; --muted:#6b7c93; --warn:#c0392b;
+    --mid:#e67e22; --low:#27ae60; --sum:#fff8e6;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:32px 16px; background:#f5f7fa; color:var(--text);
+    font-family:"Microsoft YaHei","PingFang SC","Source Han Sans SC",sans-serif;
+    line-height:1.75; font-size:15px;
+  }
+  .page{max-width:900px; margin:0 auto; background:#fff; padding:48px 56px;
+        box-shadow:0 2px 16px rgba(30,91,150,.08); border-radius:4px}
+
+  /* 封面头 */
+  header{border-bottom:3px solid var(--main); padding-bottom:24px; margin-bottom:32px}
+  h1{margin:0 0 8px; font-size:30px; color:var(--main); letter-spacing:1px}
+  .slogan{margin:0 0 20px; font-size:16px; color:var(--muted)}
+  .meta{display:flex; flex-wrap:wrap; gap:12px}
+  .meta div{background:var(--light); padding:8px 16px; border-radius:4px; font-size:14px}
+  .meta b{color:var(--main)}
+
+  /* 目录 */
+  nav{background:var(--light); padding:16px 24px; border-radius:4px; margin-bottom:32px}
+  nav strong{display:block; margin-bottom:8px; color:var(--main)}
+  nav a{color:var(--text); text-decoration:none; margin-right:18px; font-size:14px}
+  nav a:hover{color:var(--main); text-decoration:underline}
+
+  /* 章节 */
+  section{margin-bottom:36px; page-break-inside:avoid}
+  h2{font-size:19px; color:var(--main); margin:0 0 16px; padding-left:12px;
+     border-left:4px solid var(--main); line-height:1.4}
+  h3{font-size:16px; color:var(--main); margin:20px 0 10px}
+  p{margin:8px 0}
+
+  /* 表格 */
+  .tw{overflow-x:auto}
+  table{width:100%; border-collapse:collapse; margin:12px 0; font-size:14px}
+  caption{caption-side:top; text-align:left; color:var(--muted); font-size:13px; padding-bottom:6px}
+  th{background:var(--light); color:var(--main); font-weight:600}
+  th,td{border:1px solid var(--border); padding:8px 12px; text-align:left; vertical-align:top}
+  tbody tr:nth-child(even){background:#fafbfd}
+  tr.sum td{background:var(--sum); font-weight:700}
+  td.num{text-align:right; font-variant-numeric:tabular-nums}
+
+  /* 风险等级 */
+  .lv-high{color:var(--warn); font-weight:700}
+  .lv-mid{color:var(--mid); font-weight:700}
+  .lv-low{color:var(--low); font-weight:700}
+
+  /* 待确认 */
+  .todo{background:#fdf3f2; border-left:4px solid var(--warn); padding:12px 16px; border-radius:4px; margin:12px 0}
+  .todo strong{color:var(--warn)}
+  .tag{display:inline-block; background:var(--warn); color:#fff; font-size:12px;
+       padding:1px 8px; border-radius:10px; margin-left:6px}
+  .num-hl{color:var(--main); font-weight:700; font-size:16px}
+
+  @media print{
+    body{background:#fff; padding:0; font-size:11pt}
+    .page{box-shadow:none; padding:0; max-width:100%}
+    nav{display:none}
+    table{page-break-inside:avoid}
+    h2{page-break-after:avoid}
+    @page{margin:18mm 15mm}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>{{活动名称}}</h1>
+    <p class="slogan">{{Slogan}}</p>
+    <div class="meta">
+      <div>时间　<b>{{日期 时段}}</b></div>
+      <div>地点　<b>{{场地}}</b></div>
+      <div>规模　<b>{{人数}}</b></div>
+      <div>主办　<b>{{主办单位}}</b></div>
+    </div>
+  </header>
+
+  <nav>
+    <strong>目录</strong>
+    <a href="#s1">一、活动主题</a>
+    <a href="#s2">二、背景及意义</a>
+    <a href="#s3">三、活动时间</a>
+    <a href="#s4">四、参与人员</a>
+    <a href="#s5">五、内容与流程</a>
+    <a href="#s6">六、活动准备</a>
+    <a href="#s7">七、活动预算</a>
+    <a href="#s8">八、注意事项</a>
+    <a href="#sa">附录A 宣传文案</a>
+  </nav>
+
+  <section id="s1">
+    <h2>一、活动主题</h2>
+    <p>{{活动名称与主题阐释}}</p>
+  </section>
+
+  <section id="s2">
+    <h2>二、活动背景及意义</h2>
+    <h3>背景</h3><p>{{背景}}</p>
+    <h3>目的</h3><p>{{目的}}</p>
+    <h3>意义</h3><p>{{意义}}</p>
+  </section>
+
+  <section id="s3">
+    <h2>三、活动时间</h2>
+    <p>日期：{{日期}}　时段：{{开始-结束}}　关键节点：{{节点}}</p>
+  </section>
+
+  <section id="s4">
+    <h2>四、参与人员</h2>
+    <div class="tw">
+      <table>
+        <caption>参与人员构成</caption>
+        <thead><tr><th>类别</th><th>人数</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>{{类别}}</td><td class="num">{{人数}}</td><td>{{说明}}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="s5">
+    <h2>五、活动内容与流程</h2>
+    <div class="tw">
+      <table>
+        <caption>流程安排（时间到分钟，发言到人）</caption>
+        <thead><tr><th>时间</th><th>环节</th><th>内容</th><th>负责人/发言人</th><th>时长</th></tr></thead>
+        <tbody>
+          <tr><td>{{18:30}}</td><td>{{签到}}</td><td>{{内容}}</td><td>{{姓名}}</td><td>{{15min}}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="s6">
+    <h2>六、活动准备</h2>
+    <h3>6.1 物料清单</h3>
+    <div class="tw">
+      <table>
+        <caption>物料清单（含备用量）</caption>
+        <thead><tr><th>物料</th><th>规格</th><th>数量</th><th>到位时限</th><th>负责人</th></tr></thead>
+        <tbody><tr><td>{{物料}}</td><td>{{规格}}</td><td class="num">{{数量}}</td><td>{{T-3天}}</td><td>{{姓名}}</td></tr></tbody>
+      </table>
+    </div>
+    <h3>6.2 场地布置</h3>
+    <p>{{分区与动线说明}}</p>
+    <h3>6.3 分工表</h3>
+    <div class="tw">
+      <table>
+        <caption>各部门/人员分工与联系方式</caption>
+        <thead><tr><th>任务</th><th>负责部门</th><th>责任人</th><th>联系方式</th><th>截止</th></tr></thead>
+        <tbody><tr><td>{{任务}}</td><td>{{部门}}</td><td>{{姓名}}</td><td>{{电话}}</td><td>{{时间}}</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="s7">
+    <h2>七、活动预算</h2>
+    <div class="tw">
+      <table>
+        <caption>活动预算明细（含 10% 机动备用金）</caption>
+        <thead><tr><th>支出项目</th><th>数量</th><th>单价(元)</th><th>总价(元)</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>{{项目}}</td><td class="num">{{数量}}</td><td class="num">{{单价}}</td><td class="num">{{总价}}</td><td>{{说明}}</td></tr>
+          <tr class="sum"><td>合计</td><td></td><td></td><td class="num">{{合计}}</td><td>含机动备用金</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="s8">
+    <h2>八、注意事项</h2>
+    <h3>8.1 场地规则</h3>
+    <p>{{规则条款}}</p>
+    <h3>8.2 人员要求</h3>
+    <p>{{要求条款}}</p>
+    <h3>8.3 风险预案</h3>
+    <div class="tw">
+      <table>
+        <caption>风险识别与应对（按等级排序）</caption>
+        <thead><tr><th>风险项</th><th>类型</th><th>等级</th><th>预防措施</th><th>事发处置</th><th>责任人</th><th>备用方案</th></tr></thead>
+        <tbody>
+          <tr><td>{{风险}}</td><td>{{类型}}</td><td class="lv-high">{{高}}</td><td>{{预防}}</td><td>{{处置}}</td><td>{{姓名}}</td><td>{{备用}}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>8.4 应急联络</h3>
+    <p>校医 {{电话}}　安保 {{电话}}　主办 {{电话}}</p>
+  </section>
+
+  <section id="sa">
+    <h2>附录 A　宣传文案</h2>
+    <h3>推送文案</h3>
+    <p><b>标题：</b>{{标题}}<br>{{正文}}</p>
+    <h3>海报文案</h3>
+    <p><b>主标题：</b>{{主标题}}<br><b>副标题：</b>{{副标题}}</p>
+    <h3>招募话术</h3>
+    <p>{{30秒口播}}</p>
+  </section>
+
+  <section>
+    <h2>待确认事项</h2>
+    <div class="todo">
+      <strong>以下信息基于估算或缺失，请核实后替换：</strong>
+      <ul>
+        <li>{{事项}}<span class="tag">待确认</span></li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

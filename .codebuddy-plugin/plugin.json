@@ -9,7 +9,6 @@
   "agents": [
     "./agents/campus-event-planner-team-lead.md",
     "./agents/proposal-writer.md",
-    "./agents/logistics-coordinator.md",
     "./agents/budget-analyst.md",
     "./agents/risk-manager.md",
     "./agents/promo-copywriter.md"
@@ -22,7 +21,6 @@
     "leadAgent": "campus-event-planner-team-lead",
     "memberAgents": [
       "proposal-writer",
-      "logistics-coordinator",
       "budget-analyst",
       "risk-manager",
       "promo-copywriter"
@@ -80,13 +78,6 @@
       "displayName": { "en": "Chen Shuzhi", "zh": "陈述之" },
       "profession": { "en": "Proposal Writer", "zh": "方案主笔" },
       "avatar": "avatars/proposal-writer.png",
-      "role": "member"
-    },
-    {
-      "id": "logistics-coordinator",
-      "displayName": { "en": "Peng Beqi", "zh": "彭备齐" },
-      "profession": { "en": "Logistics Coordinator", "zh": "后勤筹备官" },
-      "avatar": "avatars/logistics-coordinator.png",
       "role": "member"
     },
     {

@@ -1,7 +1,7 @@
 {
   "name": "campus-event-planner",
   "version": "1.0.0",
-  "description": "Multi-agent event planning team that turns basic activity info into a full proposal, budget, risk plan and promo kit.",
+  "description": "Multi-agent club event planning team for student societies: proposals, budget, risk plan and promo kit for internal and public club activities.",
   "author": {
     "name": "胡一鸣",
     "email": "3346742145@qq.com"
@@ -36,14 +36,14 @@
     "zh": "活动策划天团"
   },
   "displayDescription": {
-    "en": "A multi-agent event planning team: feed in basic activity info and it parallel-produces a proposal, budget, risk plan and promo kit.",
-    "zh": "多角色协同的活动策划天团：输入活动基本信息，并行产出策划方案、预算、风险预案与宣传文案。"
+    "en": "A multi-agent team for student club events: feed in activity info and it parallel-produces proposal, budget, risk plan and promo copy.",
+    "zh": "面向学生社团的活动策划天团：输入活动信息，并行产出策划方案、预算、风险预案与宣传文案。"
   },
   "avatar": "avatars/team.png",
   "categoryId": "09-OperationsHR",
   "defaultInitPrompt": {
-    "zh": "帮我策划一场社团迎新破冰活动，规模 80 人，下周五晚 7 点在大学生活动中心多功能厅，要完整策划书、预算、风险预案和宣传文案。",
-    "en": "Help me plan a freshman ice-breaker for ~80 people next Friday 7pm at the student center, with full proposal, budget, risk plan and promo copy."
+    "zh": "帮我们策划一场社团迎新破冰，新成员 60 人，11月13日晚在活动室，预算 800 以内，要完整策划书、预算和应急预案。",
+    "en": "Plan a club ice-breaker for 60 new members on Nov 13 evening at our club room, budget under 800 CNY, with full proposal, budget and risk plan."
   },
   "plugin": "campus-event-planner",
   "tags": [
@@ -53,16 +53,16 @@
   ],
   "quickPrompts": [
     {
-      "en": "Plan a freshman ice-breaker for ~80 people next Friday 7pm at the student center, with full proposal, budget, risk plan and promo copy.",
-      "zh": "帮我策划一场社团迎新破冰活动，规模 80 人，下周五晚 7 点在大学生活动中心多功能厅，要完整策划书、预算、风险预案和宣传文案。"
+      "en": "Plan a club ice-breaker for 60 new members on Nov 13 evening at our club room, budget under 800 CNY, with full proposal, budget and risk plan.",
+      "zh": "帮我们策划一场社团迎新破冰，新成员 60 人，11月13日晚在活动室，预算 800 以内，要完整策划书、预算和应急预案。"
     },
     {
-      "en": "Build a detailed budget table for a lecture: list venue, materials, catering, prizes with unit prices and totals.",
-      "zh": "给一场讲座活动做一份详细预算表，列出场地、物料、餐饮、奖品等支出项目与单价合计。"
+      "en": "We're running a two-day club recruitment booth. Give me a plan with materials list, staffing, budget and rain contingency.",
+      "zh": "我们要办两天招新摆摊，帮我出个方案，要有物料清单、人员分工、预算和下雨的备用方案。"
     },
     {
-      "en": "Write promo push copy and poster slogans for my event, targeting freshman, lively and trendy tone.",
-      "zh": "为我的活动写一版面向大一新生的宣传推送文案和海报文案，风格活泼有网感。"
+      "en": "Write recruiting copy and poster slogans for our tech club, targeting freshmen, casual and lively tone.",
+      "zh": "给我们社团写一版招新文案和海报文案，面向大一新生，语气活泼别太官方。"
     }
   ],
   "members": [

@@ -24,7 +24,7 @@ Team 型（多角色协作团队）· 分类：09-OperationsHR（运营人力）
 
 ## 内置技能与知识库
 
-`skills/event-planning-kit` — 四套格式模板 + 四份角色专属知识库：
+`skills/event-planning-kit` — 四套格式模板 + 四份角色专属知识库 + 三个生成脚本：
 
 | 知识库 | 使用者 | 内容 |
 |--------|--------|------|
@@ -32,6 +32,14 @@ Team 型（多角色协作团队）· 分类：09-OperationsHR（运营人力）
 | `zhishiku/预算标准.md` | 预算分析师 | 分级上限、单价参考、计算规则、省钱策略 |
 | `zhishiku/风险与应急预案标准.md` | 风险管控师 | 四类风险源、分级标准、应急联络 |
 | `zhishiku/宣传文案标准.md` | 宣传文案师 | 语气分档、标题公式、文案规范 |
+
+| 脚本 | 产出 |
+|------|------|
+| `scripts/gen_budget_excel.py` | 预算 Excel（明细含活公式 + 分类汇总） |
+| `scripts/gen_risk_excel.py` | 风险预案 Excel（等级排序着色 + 应急联络） |
+| `scripts/gen_pptx.py` | 宣传 PPTX（4 页推广版） |
+
+> 脚本依赖 `openpyxl` 与 `python-pptx`，缺失时 `pip install openpyxl python-pptx`。
 
 > 标 ⚠️ 的条目（预算上限、应急电话）需按本校实际替换。改知识库不需要动代码。
 

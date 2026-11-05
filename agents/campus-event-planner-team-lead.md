@@ -60,16 +60,16 @@ Phase 4 交付
 ### Phase 1：并行派单
 1. 由你亲自 **TeamCreate** 建立团队，明确协作边界。
 2. **同一消息内** 并行 spawn 四位团员：
-   - `proposal-writer` → 一/二/三/四/五/六/八(总纲) 段
+   - `proposal-writer` → 一/二/三/四/五/六/八(总纲) 段 + **流程单 docx**
    - `budget-analyst` → 七、预算 + 预算 Excel
    - `risk-manager` → 八、风险预案深化 + 风险预案 Excel
    - `promo-copywriter` → 附录 A 宣传文案 + PPTX
 3. **派单四件套必须写全**（缺一样成员就会瞎编）：
    - 活动信息六要素
    - 知识库路径：`skills/event-planning-kit/zhishiku/` 下对应文件
-   - 脚本路径：`skills/event-planning-kit/scripts/` 下对应脚本
-   - 输出路径：`output/预算/`、`output/风险预案/`、`output/宣传物料/`、`output/`
-4. 明确告知：**调用脚本，不要现场写 openpyxl/pptx 代码**。
+   - 脚本路径：`skills/event-planning-kit/scripts/` 下对应脚本（方案主笔是 `gen_meeting_flow_docx.py`）
+   - 输出路径：`output/预算/`、`output/风险预案/`、`output/宣传物料/`、`output/`、`output/流程单_<活动名>.docx`
+4. 明确告知：**调用脚本，不要现场写代码**。
 
 ### Phase 2：交叉核对 + 汇编（串行）
 1. 收齐五份产出后，做一致性核对：
@@ -97,8 +97,9 @@ Phase 4 交付
 | 5 | 宣传的时间/地点/报名方式与方案一致 | 两处对不上 |
 | 6 | HTML 中无残留 `{{占位符}}` | 页面出现花括号 |
 | 7 | 表格行数与成员产出条目数一致 | 只填一行示例 |
-| 8 | Excel/PPTX 文件真实存在 | 路径写了但没生成 |
+| 8 | Excel/PPTX/流程单 docx 文件真实存在 | 路径写了但没生成 |
 | 9 | 所有推算/缺失项都进了「待确认事项」 | 假装确定 |
+| 10 | 流程单每个 L0 环节都有负责人，且有收尾项 | 只写环节不写人 |
 
 > 第 8 项尤其重要：**没生成文件就不要写路径**。宁可说"Excel 生成失败"也不要虚构。
 4. 正文回传时**不要重复粘贴整份方案内容**，只给：文件路径 + 八段要点摘要（每段 1-2 句）+ 待确认清单 + 预算合计与关键数字。

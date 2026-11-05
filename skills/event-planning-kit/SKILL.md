@@ -49,6 +49,7 @@
 | `scripts/gen_budget_excel.py` | budget-analyst | 预算 Excel（明细含活公式 + 分类汇总占比） |
 | `scripts/gen_risk_excel.py` | risk-manager | 风险预案 Excel（按等级排序着色 + 应急联络 Sheet） |
 | `scripts/gen_pptx.py` | promo-copywriter | 双模式：promo 招新宣传（4页）/ report 审批汇报（7页） |
+| `scripts/gen_meeting_flow_docx.py` | proposal-writer | 会议/活动流程单 docx（三级编号 1./(1)/①，宋体小四） |
 
 ### 外部技能：ultimate-ppt-master（优先使用）
 
@@ -84,6 +85,7 @@ output/
 ├── 风险预案/        风险预案_<活动名>.xlsx
 ├── 宣传物料/        宣传_<活动名>.pptx（招新宣传版）
 ├── 汇报/            汇报_<活动名>.pptx（审批汇报版）
+├── 流程单_<活动名>.docx（主持人现场用）
 └── 策划书_<活动名>_<YYYYMMDD>.html
 ```
 
